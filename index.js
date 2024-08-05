@@ -4205,12 +4205,7 @@ main_loader={
 		//подпапка с ресурсами
 		const lang_pack = ['RUS','ENG'][LANG];	
 			
-		//добавляем фон отдельно
-		game_res.add('bcg_table1',git_src+'res/common/bcg_table1.jpg');
-		game_res.add('bcg_table2',git_src+'res/common/bcg_table2.jpg');
-		game_res.add('bcg_table3',git_src+'res/common/bcg_table3.jpg');
-		game_res.add('bcg_table4',git_src+'res/common/bcg_table4.jpg');
-		
+	
 		game_res.add("m2_font", git_src+"fonts/Bahnschrift_shadow/font.fnt");
 		game_res.add("m3_font", git_src+"fonts/Cards_font/font.fnt");
 
@@ -4388,8 +4383,8 @@ async function init_game_env(env) {
 
 
 
-	git_src="https://akukamil.github.io/poker/"
-	git_src=""
+	git_src="https://akukamil.github.io/poker_telegram/"
+	//git_src=""
 
 	//document.body.style.backgroundColor = "black";
 	//document.body.innerHTML = '<span style="color: yellow; background-color:black; font-size: 34px;">ИГРА БУДЕТ ДОСТУПНА ЧУТЬ ПОЗЖЕ</span>';
@@ -4407,9 +4402,13 @@ async function init_game_env(env) {
 	await auth2.load_script('https://akukamil.github.io/poker/multiavatar.min.js');
 				
 
-	document.body.innerHTML='<style>html,body {margin: 0;padding: 0;height: 100%;background-image: url("https://i.pinimg.com/564x/4e/e4/ca/4ee4cad4e07f33d9125ce484c8a4cfe3.jpg");}body {display: flex;align-items:center;justify-content: center;background-color: rgba(41,41,41,1)}</style>';
+	document.body.innerHTML='<style>html,body {margin: 0;padding: 0;height: 100%}body {display: flex;align-items:center;justify-content: center;background-color: rgba(41,41,41,1)}</style>';
 
-				
+	document.body.style.backgroundImage = "url('https://akukamil.github.io/poker_telegram/res/common/bcg.jpg')";
+	document.body.style.backgroundPosition = 'center';
+	document.body.style.backgroundRepeat = 'no-repeat';
+	document.body.style.backgroundSize = 'cover';
+  
 	//создаем приложение пикси и добавляем тень
 	const opts={width:M_WIDTH, height:M_HEIGHT,antialias:true};
 	app = new PIXI.Application({width:M_WIDTH, height:M_HEIGHT,antialias:true,resolution:1.5,autoDensity:true});
