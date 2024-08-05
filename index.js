@@ -2947,9 +2947,9 @@ tables_menu={
 		
 		
 		anim2.add(objects.my_data_cont,{alpha:[0,1]}, true, 0.25,'linear');
-		anim2.add(objects.bcg,{alpha:[0, 1]}, true, 0.5,'linear');
+		//anim2.add(objects.bcg,{alpha:[0, 1]}, true, 0.5,'linear');
 		anim2.add(objects.table_buttons_cont,{x:[400,objects.table_buttons_cont.sx]}, true, 0.5,'linear');		
-		objects.bcg.texture = gres.city_img.texture;
+		//objects.bcg.texture = gres.city_img.texture;
 		
 		this.update_my_data();
 		
@@ -3232,8 +3232,8 @@ lb={
 
 	activate() {
 
-		objects.bcg.texture=gres.lb_bcg.texture;
-		anim2.add(objects.bcg,{alpha:[0,1]}, true, 0.5,'linear');
+		//objects.bcg.texture=gres.lb_bcg.texture;
+		//anim2.add(objects.bcg,{alpha:[0,1]}, true, 0.5,'linear');
 		
 		anim2.add(objects.lb_1_cont,{x:[-150, objects.lb_1_cont.sx]}, true, 0.5,'easeOutBack');
 		anim2.add(objects.lb_2_cont,{x:[-150, objects.lb_2_cont.sx]}, true, 0.5,'easeOutBack');
@@ -3627,7 +3627,7 @@ rules = {
 	activate() {
 		
 		this.active = 1;
-		anim2.add(objects.bcg,{alpha:[0,0.5]}, true, 0.6,'linear');	
+		//anim2.add(objects.bcg,{alpha:[0,0.5]}, true, 0.6,'linear');	
 		anim2.add(objects.rules_back_button,{x:[800, objects.rules_back_button.sx]}, true, 0.5,'easeOutCubic');
 		anim2.add(objects.rules_text,{alpha:[0, 1]}, true, 1,'linear');
 				
@@ -3652,7 +3652,7 @@ rules = {
 		
 		this.active = 0;
 		anim2.add(objects.rules_text,{alpha:[1, 0]}, false, 0.5,'linear');
-		anim2.add(objects.bcg,{alpha:[1, 0]}, true, 0.5,'linear');
+		//anim2.add(objects.bcg,{alpha:[1, 0]}, true, 0.5,'linear');
 		await anim2.add(objects.rules_back_button,{x:[objects.rules_back_button.x, 800]}, false, 0.5,'easeInCubic');
 		
 	}	
@@ -4159,7 +4159,7 @@ main_loader={
 		const lang_pack = ['RUS','ENG'][LANG];	
 		
 		//добавляем фон отдельно
-		game_res.add('city_img',git_src+'res/common/city_img.jpg');
+		//game_res.add('city_img',git_src+'res/common/city_img.jpg');
 		game_res.add('game_title_img',git_src+`res/${lang_pack}/game_title.png`);	
 		game_res.add('loader_bcg_img',git_src+'res/common/loader_bcg_img.png');
 		game_res.add('loader_front_img',git_src+'res/common/loader_front_img.png');
@@ -4170,11 +4170,11 @@ main_loader={
 		objects.loader_cont=new PIXI.Container();
 		
 		
-		objects.bcg=new PIXI.Sprite(gres.city_img.texture);
-		objects.bcg.width=470;
-		objects.bcg.height=820;
-		objects.bcg.x=-10;
-		objects.bcg.y=-10;
+		//objects.bcg=new PIXI.Sprite(gres.city_img.texture);
+		//objects.bcg.width=470;
+		//objects.bcg.height=820;
+		//objects.bcg.x=-10;
+		//objects.bcg.y=-10;
 		objects.title=new PIXI.Sprite(gres.game_title_img.texture);
 		objects.title.x=225;
 		objects.title.y=400;
@@ -4195,7 +4195,7 @@ main_loader={
 		objects.loader_front.height=30;
 		
 		objects.loader_cont.addChild(objects.title,objects.loader_bcg,objects.loader_front);
-		app.stage.addChild(objects.bcg,objects.loader_cont);
+		app.stage.addChild(objects.loader_cont);
 		
 		
 	},
@@ -4407,13 +4407,14 @@ async function init_game_env(env) {
 	await auth2.load_script('https://akukamil.github.io/poker/multiavatar.min.js');
 				
 
-	document.body.innerHTML='<style>html,body {margin: 0;padding: 0;height: 100%;}body {display: flex;align-items:center;justify-content: center;background-color: rgba(41,41,41,1)}</style>';
+	document.body.innerHTML='<style>html,body {margin: 0;padding: 0;height: 100%;background-image: url("https://i.pinimg.com/564x/4e/e4/ca/4ee4cad4e07f33d9125ce484c8a4cfe3.jpg");}body {display: flex;align-items:center;justify-content: center;background-color: rgba(41,41,41,1)}</style>';
 
 				
 	//создаем приложение пикси и добавляем тень
 	const opts={width:M_WIDTH, height:M_HEIGHT,antialias:true};
 	app = new PIXI.Application({width:M_WIDTH, height:M_HEIGHT,antialias:true,resolution:1.5,autoDensity:true});
-	document.body.appendChild(app.view).style["boxShadow"] = "0 0 15px #999999";					
+	app.renderer.backgroundAlpha=0;
+	document.body.appendChild(app.view);					
 
 				
 	//событие по изменению размера окна
