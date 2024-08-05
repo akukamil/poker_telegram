@@ -4562,12 +4562,9 @@ async function init_game_env(env) {
 	if (my_data.rating<100) my_data.rating=100;
 	
 	//если новый игрок
-	if (!other_data){
-		if (game_platform==='VK'||my_data.yndx_auth)
-			my_data.rating=5000;
-		else
-			my_data.rating=100;
-	}
+	if (!other_data)
+		my_data.rating=5000;
+	
 	
 	//правильно определяем аватарку
 	if (other_data?.PUB?.pic_url && other_data.PUB.pic_url.includes('mavatar'))
