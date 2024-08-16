@@ -2763,7 +2763,7 @@ confirm_dialog = {
 
 keep_alive= function() {
 	
-	fbs.ref('players/'+my_data.uid+'/PRV/tm').set(firebase.database.ServerValue.TIMESTAMP);
+	fbs.ref('players/'+my_data.uid+'/tm').set(firebase.database.ServerValue.TIMESTAMP);
 
 }
 
