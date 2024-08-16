@@ -4304,72 +4304,9 @@ language_dialog = {
 
 async function define_platform_and_language(env) {
 	
-	let s = window.location.href;
-	
-	if (env === 'game_monetize') {
-				
-		game_platform = 'GM';
-		LANG = await language_dialog.show();
-		return;
-	}
-	
-	if (s.includes('yandex')||s.includes('app-id=196005')) {
-		
-		game_platform = 'YANDEX';
-		
-		if (s.match(/yandex\.ru|yandex\.by|yandex\.kg|yandex\.kz|yandex\.tj|yandex\.ua|yandex\.uz/))
-			LANG = 0;
-		else 
-			LANG = 1;		
-		return;
-	}
-	
-	if (s.includes('vk.com')) {
-		game_platform = 'VK';	
-		LANG = 0;	
-		return;
-	}
-	
-	if (s.includes('google_play')) {
-			
-		game_platform = 'GOOGLE_PLAY';	
-		LANG = await language_dialog.show();
-		return;
-	}	
-
-	if (s.includes('rustore')) {
-			
-		game_platform = 'RUSTORE';	
-		LANG = 0;
-		return;	
-	}	
-	
-	if (s.includes('tgWebAppData')) {
-			
-		game_platform = 'TELEGRAM';	
-		LANG = await language_dialog.show();
-		return;
-	}	
-	
-	if (s.includes('crazygames')) {
-			
-		game_platform = 'CRAZYGAMES';	
-		LANG = 1;
-		return;
-	}
-	
-	if (s.includes('127.0')) {
-			
-		game_platform = 'DEBUG';	
-		LANG = await language_dialog.show();
-		return;	
-	}	
-	
-	game_platform = 'UNKNOWN';	
+	game_platform = 'TELEGRAM';	
 	LANG = await language_dialog.show();
 	
-
-
 }
 
 var kill_game = function() {
@@ -4384,7 +4321,7 @@ async function init_game_env(env) {
 
 
 	git_src="https://akukamil.github.io/poker_telegram/"
-	//git_src=""
+	git_src=""
 
 	//document.body.style.backgroundColor = "black";
 	//document.body.innerHTML = '<span style="color: yellow; background-color:black; font-size: 34px;">ИГРА БУДЕТ ДОСТУПНА ЧУТЬ ПОЗЖЕ</span>';
