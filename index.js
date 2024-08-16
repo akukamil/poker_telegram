@@ -4304,6 +4304,7 @@ language_dialog = {
 
 async function define_platform_and_language(env) {
 	
+
 	game_platform = 'TELEGRAM';	
 	LANG = await language_dialog.show();
 	
@@ -4560,7 +4561,7 @@ async function init_game_env(env) {
 	fbs.ref('players/'+my_data.uid+'/PRV/avatar_tm').set(my_data.avatar_tm);
 	fbs.ref('players/'+my_data.uid+'/PRV/blocked').set(my_data.blocked);
 	fbs.ref('players/'+my_data.uid+'/PRV/session_tm').set(firebase.database.ServerValue.TIMESTAMP);
-	fbs.ref('players/'+my_data.uid+'/PRV/tm').set(firebase.database.ServerValue.TIMESTAMP);
+	fbs.ref('players/'+my_data.uid+'/tm').set(firebase.database.ServerValue.TIMESTAMP);
 	
 	if(!other_data?.PRV?.first_log_tm)
 	fbs.ref('players/'+my_data.uid+'/PRV/first_log_tm').set(firebase.database.ServerValue.TIMESTAMP);
